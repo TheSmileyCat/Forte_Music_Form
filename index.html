@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Hello World</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>        
+  <div class="form-container" id="free-trial">
+    <form id="musicform">
+      <h2>Book a trial lesson today!!</h2>
+
+      <label for="lessonFor">Who are the lessons for?</label>
+      <select id="lessonFor" name="lessonFor" required>
+        <option value="">Select</option>
+        <option value="myself">Myself / Adult</option>
+        <option value="child">Child</option>
+      </select>
+
+      <div id="parentFields" class="hidden-fields">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name">
+        <label for="parentLastName">Your Last Name</label>
+        <input type="text" id="parentLastName" name="parentLastName">
+      </div>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="location">Preferred Location</label>
+      <select id="location" name="location" required>
+        <option value="">Select a location</option>
+        <option value="coorparoo">Coorparoo</option>
+        <option value="toowong">Toowong</option>
+      </select>
+
+      <div id="studentFields">
+        <label for="studentName">Student Name</label>
+        <input type="text" id="studentName" name="studentName" required>
+        <label for="studentLastName">Student Last Name</label>
+        <input type="text" id="studentLastName" name="studentLastName" required>
+        <label for="age">Age (in years):</label>
+        <input type="date" id="age" name="age" min="0.5" step="0.5" placeholder="e.g. 2.5">
+      </div>
+
+      <label for="instrument">Choose Course / Instrument</label>
+      <select id="instrument" name="instrument" required>
+        <option value="">Select</option>
+        <option value="Jungle_music">Jungle Music (6m-3.5yrs)</option>
+        <option value="music_is_fun">Music is Fun (3.5yrs-4.5yrs)</option>
+        <option value="Piano_keys">Piano Keys (7yrs-10yrs)</option>
+        <option value="Junior_keys">Junior Keys (4.5yrs-7yrs)</option> 
+        <option value="Instruments">Instruments (6yrs+ Adults)</option>
+        <option value="Piano">Piano</option>
+        <option value="Guitar">Guitar</option>
+        <option value="Drums">Drums</option>
+        <option value="Violin">Violin</option>
+      </select>
+
+      <button id="submitBtn" type="submit">
+        <span id="btnText">Submit</span>
+        <span id="spinner" style="display:none;">⏳</span>
+      </button>
+      <div id="disclaimer-container">
+        <p id="disclaimer">Disclaimer: All of the data will only be used for the purpose of creating your account and will not be shared with third party services</p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+  // Logic to show/hide parent name fields
+  document.getElementById('lessonFor').addEventListener('change', function() {
+    const parentFields = document.getElementById('parentFields');
+    if (this.value === 'child') {
+      parentFields.style.display = 'block';
+    } else {
+      parentFields.style.display = 'none';
+    }
+  });
+
+  // Meta Lead Tracking
+  document.getElementById('musicform').addEventListener('submit', function(e) {
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+            content_name: 'Forte Toowong Inquiry',
+            source: 'Main PHP Form'
+        });
+    }
+    document.getElementById('btnText').innerText = "Sending...";
+    document.getElementById('spinner').style.display = "inline-block";
+  });
+</script>
+    </body>
+</html>

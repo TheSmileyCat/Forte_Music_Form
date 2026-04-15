@@ -1,0 +1,40 @@
+.form-container {
+  z-index: 2;
+  width: 100%;
+  max-width: 320px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  font-size: 0.85rem;
+  overflow: auto;
+}
+.form-container h2 { margin-bottom: 0.75rem; font-size: 1.3rem; }
+.form-container label { font-size: 0.85rem; margin-bottom: 0.2rem; display: block; }
+.form-container input, .form-container select {
+  width: 100%; padding: 0.4rem 0.6rem; margin-bottom: 0.6rem;
+  border: 1px solid #ccc; border-radius: 8px; font-size: 0.85rem;
+}
+.form-container button {
+  margin-top: 0.8rem; padding: 0.5rem 1rem; background-color: #0078D4;
+  color: white; border: none; border-radius: 8px; cursor: pointer;
+  font-size: 0.85rem; transition: background-color 0.3s ease;
+}
+.form-container button:hover { background-color: #005fa3; }
+
+/* Added helper to hide parent fields initially */
+.hidden-fields { display: none; }
+
+#disclaimer-container {
+    background-color: rgb(254, 249, 195);
+    padding-left:1px;
+    display: none;
+}
+
+#disclaimer {
+    padding:10px;
+}
+
+.form-container:has(input:focus) #disclaimer-container {
+ display:block; 
+}
