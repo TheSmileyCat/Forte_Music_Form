@@ -27,12 +27,12 @@
 
 #disclaimer-container {
     background-color: rgb(254, 249, 195);
-    padding-left:1px;
+    padding-left:0.1rem;
     display: none;
 }
 
 #disclaimer {
-    padding:10px;
+    padding:0.5rem;
 }
 
 .form-container:has(input:focus) #disclaimer-container {
